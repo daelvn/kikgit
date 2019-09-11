@@ -59,7 +59,7 @@ switch args.command
       pull args.remote, args.branch if args.pull
       print ":: Adding files"
       add!
-      print ":: Commiting changes#{args.message and " -> #{args.message[1]}" or nil}"
+      print ":: Commiting changes#{args.message and " -> #{args.message[1]}" or ""}"
       commit (args.message and "-m \"#{args.message[1]}\"" or nil)
     print ":: Pushing changes to #{args.remote}/#{args.branch}"
     push args.remote, args.branch
@@ -69,7 +69,7 @@ switch args.command
       pull args.remote, args.branch if args.pull
       print ":: Adding files"
       add!
-      print ":: Commiting changes#{args.message and " -> #{args.message[1]}" or nil}"
+      print ":: Commiting changes#{args.message and " -> #{args.message[1]}" or ""}"
       commit (args.message and "-m \"#{args.message[1]}\"" or nil)
     print ":: Tagging #{args.tag}"
     tag args.tag

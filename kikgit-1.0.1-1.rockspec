@@ -1,5 +1,5 @@
 package = "kikgit"
-version = "1.0-1"
+version = "1.0.1-1"
 description = {
   summary = "It's git, but quicker",
   homepage = "https://github.com/daelvn/kikgit",
@@ -7,7 +7,7 @@ description = {
 dependencies = { "lrunkit>=2.1", "argparse",  }
 source = {
   url = "git://github.com/daelvn/kikgit",
-  tag = "v1.0",
+  tag = "v1.0.1",
 }
 build = {
   type = "none",

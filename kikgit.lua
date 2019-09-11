@@ -51,34 +51,11 @@ do
   end
   args = _with_0:parse()
 end
-local pull
-pull = function(remote, branch)
-  return command("git pull " .. tostring(remote) .. " " .. tostring(branch))
-end
-local add
-add = function()
-  return command("git add -A")
-end
-local commit
-commit = function(msg)
-  return command("git commit " .. tostring(msg and "-m " .. tostring(msg) or ""))
-end
-local tag
-tag = function(tg)
-  return command("git tag -a " .. tostring(tg))
-end
-local push
-push = function(remote, branch, tags)
-  if tags == nil then
-    tags = false
-  end
-  return command("git push " .. tostring(remote) .. " " .. tostring(branch) .. " " .. tostring(tags and "--tags" or ""))
-end
-pull = command("git pull")
-add = command("git add -A")
-commit = command("git commit")
-tag = command("git tag -a")
-push = command("git push")
+local pull = command("git pull")
+local add = command("git add -A")
+local commit = command("git commit")
+local tag = command("git tag -a")
+local push = command("git push")
 local _exp_0 = args.command
 if "push" == _exp_0 then
   if not (args.just_push) then
@@ -90,7 +67,7 @@ if "push" == _exp_0 then
     end
     print(":: Adding files")
     add()
-    print(":: Commiting changes" .. tostring(args.message and " -> " .. tostring(args.message[1]) or nil))
+    print(":: Commiting changes" .. tostring(args.message and " -> " .. tostring(args.message[1]) or ""))
     commit((args.message and "-m \"" .. tostring(args.message[1]) .. "\"" or nil))
   end
   print(":: Pushing changes to " .. tostring(args.remote) .. "/" .. tostring(args.branch))
@@ -105,7 +82,7 @@ elseif "release" == _exp_0 then
     end
     print(":: Adding files")
     add()
-    print(":: Commiting changes" .. tostring(args.message and " -> " .. tostring(args.message[1]) or nil))
+    print(":: Commiting changes" .. tostring(args.message and " -> " .. tostring(args.message[1]) or ""))
     commit((args.message and "-m \"" .. tostring(args.message[1]) .. "\"" or nil))
   end
   print(":: Tagging " .. tostring(args.tag))
